@@ -57,7 +57,7 @@ sed -i "s/;pm\.max_requests =.*/pm.max_requests = 500/" /etc/php/7.4/fpm/pool.d/
 #Install MariaDB (MySQL) and set a strong root password
 
 #Creating Database#
-sudo apt install mysql-server -y
+sudo apt-get install mariadb-server -y
 sudo mysql_secure_installation
 mysql -u root -p
 CREATE DATABASE test;
