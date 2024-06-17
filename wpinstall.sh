@@ -91,6 +91,8 @@ cd~
 wget https://wordpress.org/latest.tar.gz
 tar -xzvf latest.tar.gz
 rm latest.tar.gz
+chmod -R 755 /var/www/html/hendra56.my.id
+sudo chmod -R 0755 /var/www/html/
 cd wordpress
 mv * /var/www/html/hendra56.my.id
 
