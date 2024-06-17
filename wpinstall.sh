@@ -56,7 +56,29 @@ sed -i "s/;pm\.max_requests =.*/pm.max_requests = 500/" /etc/php/7.4/fpm/pool.d/
 
 #Install MariaDB (MySQL) and set a strong root passworD#
 # Install MariaDB and harden it
-apt install mariadb-server -y
+
+#Install MariaDB (MySQL) and set a strong root password
+
+apt-get install -y mariadb-server;
+
+#Secure your MariaDB installation
+
+MYSQL_ROOT_PASSWORD=Amirul10021996
+WP_PASSWORD=Amirul10021996
+WPDB=hendra56.my.id
+WPUSER=amirul
+
+mariadb -uroot <<MYSQL_SCRIPT
+UPDATE mysql.user SET Password=PASSWORD('$MYSQL_ROOT_PASSWORD') WHERE User='root';
+DELETE FROM mysql.user WHERE User='';
+DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
+DROP DATABASE IF EXISTS test;
+DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
+FLUSH PRIVILEGES;
+MYSQL_SCRIPT
+
+echo $MYSQL_ROOT_PASSWORD
+echo $WP_PASSWORD
 # Add hardening commands here
 #Creating Database#
 
