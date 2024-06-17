@@ -177,7 +177,7 @@ rootPath=$2
 sitesEnable='/etc/nginx/sites-enabled/'
 sitesAvailable='/etc/nginx/sites-available/'
 serverRoot='/var/www/'
-domainRegex="^[a-zA-Z0-9][-a-zA-Z0-9]+[a-zA-Z0-9].[a-z]{2,3}(.[a-z]{2,3})?(.[a-z]{2,3})?$"
+domainRegex="^(?<domain>(?<domain_sub>(?:[^\/\"\]:\.\s\|\-][^\/\"\]:\.\s\|]*?\.)*?)(?<domain_root>[^\/\"\]:\s\.\|\n]+\.(?<domain_tld>(?:xn--)?[\w-]{2,7}(?:\.[a-zA-Z-]{2,3})*)))$"
 
 while [ "$domain" = "" ]
 do
