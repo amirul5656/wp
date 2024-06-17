@@ -54,8 +54,10 @@ sed -i "s/pm\.min_spare_servers =.*/pm.min_spare_servers = 20/" /etc/php/7.4/fpm
 sed -i "s/pm\.max_spare_servers =.*/pm.max_spare_servers = 35/" /etc/php/7.4/fpm/pool.d/www.conf
 sed -i "s/;pm\.max_requests =.*/pm.max_requests = 500/" /etc/php/7.4/fpm/pool.d/www.conf
 
-#Install MariaDB (MySQL) and set a strong root password
-
+#Install MariaDB (MySQL) and set a strong root passworD#
+# Install MariaDB and harden it
+apt install mariadb-server -y
+# Add hardening commands here
 #Creating Database#
 
 cd /etc/nginx/sites-available/
